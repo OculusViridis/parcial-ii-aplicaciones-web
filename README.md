@@ -41,5 +41,6 @@ El proyecto incluye un archivo `docker-compose.yml` para levantar la base de dat
 ```bash
 # En la raíz del proyecto, ejecutar:
 docker-compose up -d
+```
 
 ### Pablo Fernando Contreras Guillermo
