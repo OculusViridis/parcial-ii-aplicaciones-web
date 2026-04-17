@@ -10,7 +10,7 @@ Este repositorio contiene la resolución práctica de la Evaluación Parcial II 
 
 El proyecto está dividido en dos capas principales, siguiendo un enfoque de arquitectura limpia y separación de responsabilidades:
 
-* **Frontend:** Angular (Standalone Components, Formularios Reactivos).
+* **Frontend:** Angular (Standalone Components, Formularios Reactivos) + **Angular Material** (Diseño de Interfaz).
 * **Backend:** Node.js con Express (Controladores, Rutas y Servicios).
 * **Base de Datos:** PostgreSQL.
 * **Infraestructura:** Docker (para contenerización de la base de datos).
@@ -41,3 +41,5 @@ El proyecto incluye un archivo `docker-compose.yml` para levantar la base de dat
 ```bash
 # En la raíz del proyecto, ejecutar:
 docker-compose up -d
+
+### Pablo Fernando Contreras Guillermo
