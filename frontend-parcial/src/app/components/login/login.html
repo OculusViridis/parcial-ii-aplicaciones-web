@@ -1,31 +1,34 @@
-<div style="max-width: 400px; margin: 50px auto; font-family: sans-serif; border: 1px solid #ccc; padding: 20px; border-radius: 8px;">
-  <h2>Iniciar Sesión</h2>
-  
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="card-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Iniciar Sesión</mat-card-title>
+    </mat-card-header>
     
-    <div style="margin-bottom: 15px;">
-      <label>Correo:</label><br>
-      <input type="email" formControlName="correo" style="width: 100%; padding: 8px;">
-      <div *ngIf="loginForm.get('correo')?.invalid && loginForm.get('correo')?.touched" style="color: red; font-size: 12px;">
-        El correo es obligatorio y debe ser válido.
-      </div>
-    </div>
+    <mat-card-content style="margin-top: 20px;">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput type="email" formControlName="correo">
+          <mat-error *ngIf="loginForm.get('correo')?.hasError('required')">El correo es obligatorio</mat-error>
+          <mat-error *ngIf="loginForm.get('correo')?.hasError('email')">Debe ser un correo válido</mat-error>
+        </mat-form-field>
 
-    <div style="margin-bottom: 15px;">
-      <label>Contraseña:</label><br>
-      <input type="password" formControlName="contrasena" style="width: 100%; padding: 8px;">
-      <div *ngIf="loginForm.get('contrasena')?.invalid && loginForm.get('contrasena')?.touched" style="color: red; font-size: 12px;">
-        La contraseña es obligatoria.
-      </div>
-    </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="contrasena">
+          <mat-error *ngIf="loginForm.get('contrasena')?.hasError('required')">La contraseña es obligatoria</mat-error>
+        </mat-form-field>
 
-    <div *ngIf="mensajeError" style="color: white; background-color: red; padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center;">
-      {{ mensajeError }}
-    </div>
+        <div *ngIf="mensajeError" style="color: white; background-color: #f44336; padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center;">
+          {{ mensajeError }}
+        </div>
 
-    <button type="submit" style="width: 100%; padding: 10px; background-color: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer;">
-      Ingresar
-    </button>
-    
-  </form>
+        <button mat-raised-button color="primary" type="submit" style="width: 100%; padding: 25px 0; font-size: 16px;">
+          Ingresar
+        </button>
+        
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>

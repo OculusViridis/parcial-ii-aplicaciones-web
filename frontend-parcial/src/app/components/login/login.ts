@@ -4,12 +4,30 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api'; 
 
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], 
-  templateUrl: './login.html' 
+  imports: [
+    CommonModule, 
+    ReactiveFormsModule, 
+    MatInputModule, 
+    MatFormFieldModule, 
+    MatButtonModule, 
+    MatCardModule
+  ], 
+  templateUrl: './login.html',
+  // Pequeño estilo para que los inputs ocupen todo el ancho
+  styles: [`
+    .full-width { width: 100%; margin-bottom: 15px; }
+    .card-container { max-width: 400px; margin: 50px auto; }
+  `]
 })
+
 export class LoginComponent {
   loginForm: FormGroup;
   mensajeError: string = '';

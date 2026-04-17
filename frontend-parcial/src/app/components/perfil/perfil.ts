@@ -3,12 +3,27 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api';
 import { Router } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-perfil',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './perfil.html' // O el nombre exacto de tu archivo HTML
+  imports: [
+    CommonModule, 
+    ReactiveFormsModule,
+    MatInputModule, 
+    MatFormFieldModule, 
+    MatButtonModule, 
+    MatCardModule
+  ],
+  templateUrl: './perfil.html',
+  styles: [`
+    .full-width { width: 100%; margin-bottom: 10px; }
+    .card-container { max-width: 500px; margin: 40px auto; }
+  `]
 })
 export class PerfilComponent implements OnInit {
   perfilForm: FormGroup;
