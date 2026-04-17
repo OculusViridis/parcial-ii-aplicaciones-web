@@ -1,0 +1,58 @@
+<div style="max-width: 500px; margin: 40px auto; font-family: sans-serif; border: 1px solid #ccc; padding: 20px; border-radius: 8px;">
+  <h2>{{ existePerfil ? 'Actualizar Mi Perfil' : 'Crear Mi Perfil' }}</h2>
+  
+  <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+    
+    <div style="margin-bottom: 15px;">
+      <label>Nombre:</label><br>
+      <input type="text" formControlName="nombre" style="width: 100%; padding: 8px;">
+      <div *ngIf="perfilForm.get('nombre')?.invalid && perfilForm.get('nombre')?.touched" style="color: red; font-size: 12px;">
+        El nombre es obligatorio.
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Apellido:</label><br>
+      <input type="text" formControlName="apellido" style="width: 100%; padding: 8px;">
+      <div *ngIf="perfilForm.get('apellido')?.invalid && perfilForm.get('apellido')?.touched" style="color: red; font-size: 12px;">
+        El apellido es obligatorio.
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Edad:</label><br>
+      <input type="number" formControlName="edad" style="width: 100%; padding: 8px;">
+      <div *ngIf="perfilForm.get('edad')?.invalid && perfilForm.get('edad')?.touched" style="color: red; font-size: 12px;">
+        La edad es obligatoria y debe ser un número válido.
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Correo Electrónico:</label><br>
+      <input type="email" formControlName="correo" style="width: 100%; padding: 8px;">
+      <div *ngIf="perfilForm.get('correo')?.invalid && perfilForm.get('correo')?.touched" style="color: red; font-size: 12px;">
+        El correo es obligatorio y debe tener un formato válido.
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Teléfono (8 dígitos):</label><br>
+      <input type="text" formControlName="telefono" style="width: 100%; padding: 8px;">
+      <div *ngIf="perfilForm.get('telefono')?.invalid && perfilForm.get('telefono')?.touched" style="color: red; font-size: 12px;">
+        El teléfono es obligatorio y debe tener exactamente 8 dígitos.
+      </div>
+    </div>
+
+    <div *ngIf="mensajeExito" style="color: white; background-color: green; padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center;">
+      {{ mensajeExito }}
+    </div>
+    <div *ngIf="mensajeError" style="color: white; background-color: red; padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center;">
+      {{ mensajeError }}
+    </div>
+
+    <button type="submit" style="width: 100%; padding: 10px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer;">
+      {{ existePerfil ? 'Actualizar Perfil' : 'Guardar Perfil' }}
+    </button>
+    
+  </form>
+</div>

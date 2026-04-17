@@ -1,0 +1,31 @@
+<div style="max-width: 400px; margin: 50px auto; font-family: sans-serif; border: 1px solid #ccc; padding: 20px; border-radius: 8px;">
+  <h2>Iniciar Sesión</h2>
+  
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
+    <div style="margin-bottom: 15px;">
+      <label>Correo:</label><br>
+      <input type="email" formControlName="correo" style="width: 100%; padding: 8px;">
+      <div *ngIf="loginForm.get('correo')?.invalid && loginForm.get('correo')?.touched" style="color: red; font-size: 12px;">
+        El correo es obligatorio y debe ser válido.
+      </div>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label>Contraseña:</label><br>
+      <input type="password" formControlName="contrasena" style="width: 100%; padding: 8px;">
+      <div *ngIf="loginForm.get('contrasena')?.invalid && loginForm.get('contrasena')?.touched" style="color: red; font-size: 12px;">
+        La contraseña es obligatoria.
+      </div>
+    </div>
+
+    <div *ngIf="mensajeError" style="color: white; background-color: red; padding: 10px; margin-bottom: 15px; border-radius: 4px; text-align: center;">
+      {{ mensajeError }}
+    </div>
+
+    <button type="submit" style="width: 100%; padding: 10px; background-color: #0056b3; color: white; border: none; border-radius: 4px; cursor: pointer;">
+      Ingresar
+    </button>
+    
+  </form>
+</div>
